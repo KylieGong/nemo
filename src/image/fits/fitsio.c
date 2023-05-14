@@ -58,6 +58,7 @@
 /*     8-nov-05 also recognize XTENSION = 'IMAGE'                       */
 /*    11-dec-06 store cvsID in output                                   */
 /*     7-nov-22 CFITSIO version in fitsio_nemo.c is now the default     */
+/*     8-apr-23 cleanup, bug fix ?                                      */
 /* ToDo:                                                                */
 /*  - BLANK substitution                                                */
 /*  - deal with pipes                                                   */
@@ -66,8 +67,6 @@
 #include <stdinc.h>
 #include <ctype.h>
 #include <fitsio_nemo.h>
-
-static char *cvs_id="$Id$ fitsio.c";
 
 /* 
  * this next #def's obviously needs to be refined. 
@@ -544,9 +543,9 @@ void fitsetpl(FITS *file, int n, int *nsize)
   if (f->skip == 0)
   	warning("fitsetpl: f->skip is 0, should be multiple of 2880");
   if (offset < 0)
-	error("fitsetpl: bad offset=%ld (%d,...)\n",offset,nsize[0]);
-  dprintf(1,"fitsetpl(%d)  nsize[%d]=%d",n,i,nsize[i]);
-  dprintf(4,"fitsetpl: offset=%ld (%d,...)\n",offset,nsize[0]);
+	error("fitsetpl: bad offset=%ld (%d,...)",offset,nsize[0]);
+  dprintf(1,"fitsetpl(%d)  nsize[%d]=%d\n",n,i,nsize[i]);
+  dprintf(4,"fitsetpl: skip=%ld offset=%ld (%d,...)\n",f->skip,offset,nsize[0]);
 }
 /**********************************************************************/
 void fit_setbitpix(int bp)
