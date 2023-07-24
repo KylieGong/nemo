@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: astroNEMO
+Version: 4.4.1
+Summary: Python tools to aid in using NEMO in python
+Home-page: https://github.com/teuben/nemo
+Author: Peter Teuben
+Author-email: teuben@astro.umd.edu
+License: BSD
+Keywords: astronomy
+Platform: UNKNOWN
+License-File: COPYING
+License-File: AUTHORS
+
+UNKNOWN
+

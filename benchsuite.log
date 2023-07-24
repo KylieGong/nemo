@@ -1,0 +1,37 @@
+BENCHSUITE started Sat Jun  3 23:36:01 EDT 2023
+BENCHSUITE version 20-jan-2022
+NEMO version 4.4.1 Zephie (x86_64-unknown-linux-gnu)
+==========================================================
+make[1]: Entering directory '/home/kylie_gong/nemo/tmp/bench580'
+Cleaning src/nbody/evolve/sellwood/tools
+mkplummer bench1.in 1000 seed=1000
+rm -rf bench1.run
+nemobench rungalaxy in=bench1.in outdir=bench1.run tstop=10
+NEMOBENCH: rungalaxy 1.88user 0.00system 0:01.88elapsed 99%CPU (0avgtext+0avgdata 12416maxresident)k
+rm -rf bench1.in
+make[1]: Leaving directory '/home/kylie_gong/nemo/tmp/bench580'
+==========================================================
+make[1]: Entering directory '/home/kylie_gong/nemo/tmp/bench580'
+Cleaning src/nbody/init
+rm -rf 
+nemobench mkplummer . nbody="10*1000000"
+NEMOBENCH: mkplummer 2.71user 0.69system 0:03.41elapsed 99%CPU (0avgtext+0avgdata 1643084maxresident)k
+nemobench mkplummer bench1.snap nbody="10*1000000"
+NEMOBENCH: mkplummer 2.71user 0.54system 0:03.26elapsed 99%CPU (0avgtext+0avgdata 1643036maxresident)k
+bench1.snap: 535MB for nbody=10M MBODY=10
+make[1]: Leaving directory '/home/kylie_gong/nemo/tmp/bench580'
+==========================================================
+make[1]: Entering directory '/home/kylie_gong/nemo/tmp/bench580'
+Cleaning src/orbit/potential
+rm -rf bench1.ccd
+potccd bench1.ccd plummer x=
+### nemo Debug Info: Creating image 0 * 1 * 1
+### nemo Debug Info: using Omega = 0
+nemobench potccd . plummer x=-5:5:0.05/2 y=-5:5:0.05/2 z=-5:5:0.05/2
+NEMOBENCH: potccd 0.80user 0.05system 0:00.85elapsed 100%CPU (0avgtext+0avgdata 506448maxresident)k
+nemobench potccd . plummer x=-5:5:0.05/2 y=-5:5:0.05/2 z=-5:5:0.05/2 mode=den dr=0.001 nder=2
+NEMOBENCH: potccd 2.64user 0.05system 0:02.69elapsed 100%CPU (0avgtext+0avgdata 506448maxresident)k
+nemobench potccd . gauss 0,1,1 1 x=-5:5:0.05 y=-5:5:0.05 z=-5:5:0.05
+NEMOBENCH: potccd 0.28user 0.00system 0:00.28elapsed 99%CPU (0avgtext+0avgdata 66160maxresident)k
+nemobench potccd . gauss 0,1,1,1,0.5 x=-5:5:0.05 y=-5:5:0.05 z=-5:5:0.05
+NEMOBENCH: potccd 5.78user 0.00system 0:05.78elapsed 100%CPU (0avgtext+0avgdata 66116maxresident)k

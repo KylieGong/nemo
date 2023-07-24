@@ -1,0 +1,9 @@
+#!/bin/csh
+#
+#  IFILE   in=
+#  OFILE   out=
+#>  IDIR    indir=
+#>  ENTRY   eps=0.01
+#>  RADIO   mode=gauss              gauss,newton,leibniz
+#>  CHECK   options=mean,sigma      sum,mean,sigma,skewness,kurtosis
+#>  SCALE   n=3.14159              0:10:0.1

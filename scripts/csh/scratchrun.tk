@@ -1,0 +1,23 @@
+# This file is temporary; for merging into main tkrun script
+# For: set mode    = ds9       #> CHECK mode=ds9     ds9,plot
+proc new_var_mode {} {
+   global arr_var_mode var_mode
+   set var_mode ""
+   global var_mode_ds9
+   if {$var_mode_ds9} { lappend var_mode $arr_var_mode(var_mode_ds9)}
+   global var_mode_plot
+   if {$var_mode_plot} { lappend var_mode $arr_var_mode(var_mode_plot)}
+   set var_mode [join $var_mode ","]
+}
+# For: set mode    = ds9       #> CHECK mode=ds9     ds9,plot
+proc load_var_mode {} {
+   global arr_var_mode var_mode
+   global var_mode_ds9
+   global var_mode_plot
+   foreach i [split "ds9,plot" ","] {
+     set var_mode_$i 0
+   }
+   foreach i [split $var_mode ","] {
+     set var_mode_$i 1
+   }
+}

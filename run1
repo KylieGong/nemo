@@ -1,0 +1,29 @@
+#! /bin/csh -f
+#
+#   Example template for tkrun, generated with 'tkrun -e'
+#
+#
+#>  IFILE   in=
+#>  OFILE   out=
+#>  IDIR    indir=
+#>  ENTRY   eps=0.01
+#>  RADIO   mode=gauss              gauss,newton,leibniz
+#>  CHECK   options=mean,sigma      sum,mean,sigma,skewness,kurtosis
+#>  SCALE   n=3.141592              0:10:0.01
+#
+# In csh scripts you can also now merge the "set" and "#>" lines, e.g.
+#
+set a=1     #> SLIDER a=1  0:10:0.1
+#
+foreach _arg ($*)
+  set $_arg
+end
+
+# some example code using the variables:
+echo in      =$in
+echo indir   =$indir
+echo out     =$out
+echo eps     =$eps
+echo mode    =$mode
+echo options =$options
+echo n       =$n

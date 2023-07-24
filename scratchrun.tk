@@ -1,0 +1,38 @@
+# This file is temporary; for merging into main tkrun script
+#  For: #>  IDIR    indir=
+proc new_var_indir {} {
+   global var_indir
+   set var_indir [tk_chooseDirectory -parent .keys.indir.frame.val]
+   focus .keys.indir.frame.val
+}
+# For: #>  CHECK   options=mean,sigma      sum,mean,sigma,skewness,kurtosis
+proc new_var_options {} {
+   global arr_var_options var_options
+   set var_options ""
+   global var_options_sum
+   if {$var_options_sum} { lappend var_options $arr_var_options(var_options_sum)}
+   global var_options_mean
+   if {$var_options_mean} { lappend var_options $arr_var_options(var_options_mean)}
+   global var_options_sigma
+   if {$var_options_sigma} { lappend var_options $arr_var_options(var_options_sigma)}
+   global var_options_skewness
+   if {$var_options_skewness} { lappend var_options $arr_var_options(var_options_skewness)}
+   global var_options_kurtosis
+   if {$var_options_kurtosis} { lappend var_options $arr_var_options(var_options_kurtosis)}
+   set var_options [join $var_options ","]
+}
+# For: #>  CHECK   options=mean,sigma      sum,mean,sigma,skewness,kurtosis
+proc load_var_options {} {
+   global arr_var_options var_options
+   global var_options_sum
+   global var_options_mean
+   global var_options_sigma
+   global var_options_skewness
+   global var_options_kurtosis
+   foreach i [split "sum,mean,sigma,skewness,kurtosis" ","] {
+     set var_options_$i 0
+   }
+   foreach i [split $var_options ","] {
+     set var_options_$i 1
+   }
+}

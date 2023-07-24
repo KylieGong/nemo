@@ -1,0 +1,11 @@
+AUTHORS
+COPYING
+README.md
+setup.py
+astroNEMO.egg-info/PKG-INFO
+astroNEMO.egg-info/SOURCES.txt
+astroNEMO.egg-info/dependency_links.txt
+astroNEMO.egg-info/requires.txt
+astroNEMO.egg-info/top_level.txt
+nemopy/__init__.py
+nemopy/getparam.py
